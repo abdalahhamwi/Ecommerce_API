@@ -20,4 +20,4 @@ The project aims to provide a robust and flexible solution for managing products
 * **Language:** Python 3
 * **Framework:** Django
 * **Core Library:** Django REST Framework (DRF)
-* **Database:** SQLite (for development) / PostgreSQL (for production)
+* **Database:** SQLite
