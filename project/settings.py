@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "product",
+    'rest_framework_simplejwt'
 ]
 
 MIDDLEWARE = [
@@ -84,6 +86,24 @@ DATABASES = {
     }
 }
 
+# REST_FRAMEWORK SETTINGS 
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    
+}
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'BLACKLIST_AFTER_ROTATION': True,
+    'Auth_HEADER_TYPES': ('Bearer',),
+    'Auth_token_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    
+    
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
